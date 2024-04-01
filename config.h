@@ -5,24 +5,37 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10" };
-static const char dmenufont[]       = "monospace:size=10";
+static const char *fonts[]          = { "JetBrainsMonoNL NF Light:size=10" };
+static const char dmenufont[]       = "JetBrainsMonoNL NF Light:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
+
+static const char col_light_blue[]  = "#4FC3F7";
+static const char col_true_cyan[]   = "#00ffff";
 static const char col_black[]       = "#000000";
 static const char col_magenta[]     = "#ff00ff";
 static const char col_red[]         = "#ff0000";
+static const char col_dark_red[]    = "#b00000";
+
+static const unsigned int baralpha  = 0xd0;
+static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_black, col_gray1 },
 	[SchemeSel]  = { col_magenta, col_black, col_gray2 },
 };
 
+static const unsigned int alphas[][3]      = {
+	/*               fg      bg        border     */
+	[SchemeNorm] = { OPAQUE, baralpha, borderalpha },
+	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
+};
+
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "" };
+static const char *tags[] = { "1", "2", "3", "4", "5", "7", "8" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -93,10 +106,10 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_3,                      2)
 	TAGKEYS(                        XK_4,                      3)
 	TAGKEYS(                        XK_5,                      4)
-	TAGKEYS(                        XK_6,                      5)
-	TAGKEYS(                        XK_7,                      6)
-	TAGKEYS(                        XK_8,                      7)
-	TAGKEYS(                        XK_9,                      8)
+	TAGKEYS(                        XK_7,                      5)
+	TAGKEYS(                        XK_8,                      6)
+	TAGKEYS(                        XK_9,                      7)
+	TAGKEYS(                        XK_0,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
 
@@ -116,4 +129,3 @@ static const Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-
